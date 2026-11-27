@@ -1,0 +1,35 @@
+# Builds the .rmskin and attaches it to a GitHub release
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check version
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          grep -qx "Version=$VERSION" Skins/AutoRez/AutoRez.ini
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Add license
+        run: cp LICENSE Skins/AutoRez/
+
+      - name: Build
+        id: build
+        uses: 2bndy5/rmskin-action@v2.0.4
+        with:
+          version: ${{ env.VERSION }}
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" "${{ steps.build.outputs.arc-name }}" --title "AutoRez $VERSION" --generate-notes

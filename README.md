@@ -4,8 +4,7 @@ Rainmeter skin that automatically switches the loaded layout based on screen res
 
 ## Install
 
-1. Clone into the Rainmeter Skins folder (`Documents\Rainmeter\Skins` by default), or download the ZIP and extract it there as `AutoRez`
-2. Load `AutoRez.ini` from Manage Rainmeter (click the tray icon)
+Download and install the `.rmskin` from [Releases](https://github.com/alexhool/AutoRez/releases/latest)
 
 ## Setup
 
@@ -17,7 +16,7 @@ Rainmeter skin that automatically switches the loaded layout based on screen res
 
 ## Settings
 
-In [`@Resources\Variables.inc`](@Resources/Variables.inc):
+In [`@Resources\Variables.inc`](Skins/AutoRez/@Resources/Variables.inc):
 
 - `Screen`
   - `Main`: main display resolution, for skins on one screen
@@ -28,7 +27,6 @@ In [`@Resources\Variables.inc`](@Resources/Variables.inc):
 ## Notes
 
 - Rainmeter's [Log](https://docs.rainmeter.net/manual/user-interface/about/#LogTab) shows the resolution AutoRez reads
-- The `SkinPath` line in Rainmeter's Log shows the Skins folder
 - AutoRez only runs in layouts saved with AutoRez loaded
 - Resolutions are as Rainmeter reports them, so Windows scaling changes them (2560x1600 at 150% is 1707x1067)
 

@@ -1,4 +1,4 @@
--- Automatically switches the loaded layout based on screen resolution
+-- Automatically switches layouts based on screen resolution
 
 local measureMain
 local measureCombinedWidth

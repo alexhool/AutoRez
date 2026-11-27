@@ -1,6 +1,6 @@
 # AutoRez
 
-Rainmeter skin that automatically switches the loaded layout based on screen resolution
+Rainmeter skin that automatically switches layouts based on screen resolution
 
 ## Install
 

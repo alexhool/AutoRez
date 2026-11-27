@@ -32,4 +32,8 @@ jobs:
       - name: Publish
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" "${{ steps.build.outputs.arc-name }}" --title "AutoRez $VERSION" --generate-notes
+        run: |
+          git fetch --force origin "refs/tags/$GITHUB_REF_NAME:refs/tags/$GITHUB_REF_NAME"
+          CHANGES=$(git tag -l --format='%(contents:body)' "$GITHUB_REF_NAME")
+          NOTES=$'## Changes\n\n'"$CHANGES"$'\n\n<br>'
+          gh release create "$GITHUB_REF_NAME" "${{ steps.build.outputs.arc-name }}" --title "AutoRez $GITHUB_REF_NAME" --notes "$NOTES" --generate-notes

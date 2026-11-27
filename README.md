@@ -12,7 +12,7 @@ Download and install the `.rmskin` from [Releases](https://github.com/alexhool/A
 2. Save every layout with AutoRez loaded
 3. Read each screen setup's resolution from Rainmeter's Log (`AutoRez: <width>x<height>`)
 4. Open `@Resources\Variables.inc` (Manage Rainmeter → right-click AutoRez → Open folder)
-5. Map each resolution to a layout
+5. Map each resolution to a layout in `Layouts`
 6. Refresh AutoRez
 
 ## Settings
@@ -22,7 +22,7 @@ In [`@Resources\Variables.inc`](Skins/AutoRez/@Resources/Variables.inc):
 - `Screen`
   - `Main`: main display resolution, for skins on one screen
   - `Combined`: all displays together, for skins across monitors, changes when monitors are rearranged
-- `<width>x<height>=<layout name>`: layout for that resolution, others keep the current layout
+- `Layouts`: `<width>x<height>:<layout name>` pairs separated by `|`, others keep the current layout
 - `UpdateRate`: check interval in milliseconds, see Rainmeter's [Update](https://docs.rainmeter.net/manual/skins/rainmeter-section/#Update)
 
 ## Notes

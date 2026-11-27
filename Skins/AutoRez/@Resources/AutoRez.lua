@@ -5,6 +5,7 @@ local measureCombinedWidth
 local measureCombinedHeight
 local variablesPath
 local isCombined
+local layouts
 local lastResolution
 
 local function GetResolution()
@@ -20,6 +21,13 @@ function Initialize()
 	measureCombinedHeight = SKIN:GetMeasure('MeasureCombinedHeight')
 	variablesPath = SKIN:ReplaceVariables('#@#Variables.inc')
 	isCombined = SKIN:GetVariable('Screen', ''):lower() == 'combined'
+	layouts = {}
+	for mapping in SKIN:GetVariable('Layouts', ''):gmatch('[^|]+') do
+		local width, height, layout = mapping:match('^%s*(%d+)[xX](%d+)%s*:%s*(%S.-)%s*$')
+		if width then
+			layouts[width .. 'x' .. height] = layout
+		end
+	end
 	lastResolution = SKIN:GetVariable('LastResolution')
 end
 
@@ -30,7 +38,7 @@ function Update()
 	end
 	lastResolution = resolution
 	SKIN:Bang('!Log', 'AutoRez: ' .. resolution)
-	local layout = SKIN:GetVariable(resolution)
+	local layout = layouts[resolution]
 	if layout then
 		SKIN:Bang('!WriteKeyValue', 'Variables', 'LastResolution', resolution, variablesPath)
 		SKIN:Bang('!LoadLayout', layout)

@@ -8,11 +8,12 @@ Download and install the `.rmskin` from [Releases](https://github.com/alexhool/A
 
 ## Setup
 
-1. Save every layout with AutoRez loaded
-2. Read each screen setup's resolution from Rainmeter's Log (`AutoRez: <width>x<height>`)
-3. Open `@Resources\Variables.inc` (Manage Rainmeter → right-click AutoRez → Open folder)
-4. Map each resolution to a layout
-5. Refresh AutoRez
+1. Load `AutoRez.ini` from Manage Rainmeter (click the tray icon)
+2. Save every layout with AutoRez loaded
+3. Read each screen setup's resolution from Rainmeter's Log (`AutoRez: <width>x<height>`)
+4. Open `@Resources\Variables.inc` (Manage Rainmeter → right-click AutoRez → Open folder)
+5. Map each resolution to a layout
+6. Refresh AutoRez
 
 ## Settings
 
